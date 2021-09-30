@@ -1,68 +1,134 @@
-' https://www.bilibili.com/video/BV1zQ4y1d7dQ?p=3
-' 2:50 ~ 3:46
+' https://www.bilibili.com/video/BV1zQ4y1d7dQ?p=8
+' 2:13 ~ 3:14
 
 @startuml
-actor       老头   as oldman
-actor       蛇精    as snake  #Black
-actor       蝎子精    as scorpion   #Purple
-entity      蛛网  as spiderweb #White
+entity	洞穴	as Cave #black
+entity	酒杯	as Cup #gray
+actor	众妖怪	as CommonMonster #yellow
+actor	火娃	as HuoWa #red
+actor	水娃	as ShuiWa #blue
+actor	蝎子精	as ScorpionEssence #white
+actor	蛇精	as SnakeEssence #green
 
-spiderweb -[#Green]> spiderweb : 开
+Cave -[#gray]> Cave : 阴暗潮湿
 
-snake -[#Grey]> oldman : 告诉
+CommonMonster -[#gray]> CommonMonster : 埋伏于山洞
+
+SnakeEssence -> HuoWa : 告诉
 note right
-    老人家，
-    你和我无冤无仇，
-    这次请你来...
+	请喝
+end note
+SnakeEssence -> ShuiWa : 告诉
+note right
+	请喝
 end note
 
-oldman -[#Grey]> snake : 告诉
-note left: 哼!有这么请的么？
-
-snake -[#Grey]> oldman : 告诉
+ScorpionEssence -> HuoWa : 告诉
 note right
-    老人家，冤仇易解不宜结，
-    我们攀个亲家交个朋友，
-    你可以安度晚年
+	呵呵呵，
+	来来，
+	咋们干
+end note
+ScorpionEssence ->ShuiWa : 告诉
+note right
+	呵呵呵，
+	来来，
+	咋们干
 end note
 
-scorpion -[#Grey]> oldman : 告诉
-note right
-    这是我们的一片诚意啊！
-    哈哈哈哈哈哈哈...
+HuoWa ->ScorpionEssence : 慢慢地说
+note left
+	这就倒是非常香，
+	可惜太冷了一点，
+	这洞...
+end note
+HuoWa -> SnakeEssence : 慢慢地说
+note left
+	这就倒是非常香，
+	可惜太冷了一点，
+	这洞...
 end note
 
-snake -[#Grey]> oldman : 告诉
-note right: 来来来，我先敬你一杯
-
-oldman -[#Grey]> snake : 告诉
-note left: 去你的
-
-oldman -[#Red]> snake : 造成伤害
-note left: 掌掴
-
-scorpion -[#Blue]> scorpion : 发怒
-note right: 哇呀呀呀呀呀...
-
-scorpion -[#Blue]> scorpion : 前进
-
-scorpion -[#Grey]> oldman : 告诉
-
-note right: 你是不想活了你
-
-scorpion -[#Red]> oldman : 造成伤害
-note left: 掐
-
-snake -[#Grey]> scorpion : 告诉
-note right
-    大王，别急，
-    留着这老头才能摸清葫芦的奥秘，
-    知己知彼才能消灾灭祸
+ShuiWa -> ScorpionEssence : 接话道
+note left
+	也是又冷又暗，
+	坐在这冷板凳上，
+	屁股都发亮
+end note
+ShuiWa -> SnakeEssence : 接话道
+note left
+	也是又冷又暗，
+	坐在这冷板凳上，
+	屁股都发亮
 end note
 
-scorpion -[#Blue]> scorpion : 转眼珠
+HuoWa -[#blue]> HuoWa : 转了转眼睛
 
-spiderweb -[#Green]> spiderweb : 关
+HuoWa -[#green]> CommonMonster : 发现埋伏
+
+ScorpionEssence -> HuoWa : 告诉
+note right
+	对对对
+end note
+ScorpionEssence -> ShuiWa : 告诉
+note right
+	对对对
+end note
+
+ScorpionEssence -> CommonMonster : 下令道
+note right
+	 来啊，
+	快掌灯生火，
+	共庆佳宴
+end note
+
+HuoWa -> ScorpionEssence : 告诉
+note right
+	慢，
+	用不着费那么大力气，
+	看我的
+end note
+
+HuoWa -[#red]> Cave : 喷射火焰
+
+Cave -[#gray]> Cave : 明亮暖和
+
+HuoWa -[#red]> CommonMonster : 喷射火焰
+
+CommonMonster -> CommonMonster : 四散奔逃
+
+HuoWa -[#blue]> HuoWa : 转了转眼睛
+
+HuoWa -[#green]> CommonMonster : 发现其四散奔逃
+
+HuoWa -[#red]> Cup : 喷射火焰
+
+Cup -[#gray]> Cup : 酒水沸腾起来
+
+ScorpionEssence -[#gray]> ScorpionEssence : “啊”了一声
+
+SnakeEssence -[#gray]> SnakeEssence : 大吃一惊
+
+SnakeEssence -> HuoWa : 谄媚
+note right
+	二位兄弟大驾光临，
+	为洞府增辉啊
+end note
+SnakeEssence -> ShuiWa : 谄媚
+note right
+	二位兄弟大驾光临，
+	为洞府增辉啊
+end note
+
+ScorpionEssence -> HuoWa : 害怕道
+note right
+	你们真是神通广大，
+	佩服佩服
+end note
+ScorpionEssence -> ShuiWa : 害怕道
+note right
+	你们真是神通广大，
+	佩服佩服
+end note
 
 @enduml
-

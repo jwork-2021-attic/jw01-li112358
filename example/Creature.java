@@ -1,57 +1,36 @@
 package example;
 
-public class Creature extends Being {
+public class Creature {
+	private String name;
 
-    int health;
-    int attack;
-    int defense;
-
-    String[] memory;
-    int memoryOffset;
-
-    public Creature() {
-        memory = new String[7];
-        memoryOffset = 0;
-    }
-
-    public void speakTo(Creature creature, String something) {
-        System.out.println("I tell " + creature + "'" + something + "'");
-        creature.listen(something);
-    }
-
-    public void listen(String something) {
-        System.out.println("I heard: " + something);
-        memory[memoryOffset % memory.length] = something;
-    }
-
-    public void attack(Creature creature, int ap) {
-        System.out.println("I attack " + creature + " of " + ap + "points");
-        creature.receiveAttack(ap);
-    }
-
-    public void receiveAttack(int ap) {
-        if (!isDead()) {
-            if (defense < ap) {
-                health -= ap;
-                System.out.println("I got " + ap + "points attack");
-            }
-        }
-    }
-
-    public boolean isDead() {
-
-        if (health <= 0) {
-            System.out.println("I am dead");
-            return true;
-        }
-
-        return false;
-    }
-
-    public void move() {
-
-        // not implemented yet
-
-    }
-
+	Creature(){
+		name = "某一生物";
+	}
+	
+	Creature(String N){
+		name = N;
+	}
+	
+	final public String name() {
+		return name;
+	}
+	
+	public void speakTo(Creature creature1, Creature creature2, String sentence) {
+		System.out.println(name +"对" + creature1.name + "和" + creature2.name + "说道：“" + sentence + "”");
+		creature1.listenFrom(name, sentence);
+		creature2.listenFrom(name, sentence);
+	}
+	
+	public void speakTo(Creature creature, String sentence) {
+		System.out.println(name +"对" + creature.name + "说道：“" + sentence + "”");
+		creature.listenFrom(name, sentence);
+	}
+	
+	public void listenFrom(String HName, String sentence) {
+		System.out.println("：" + name + "听" + HName + "说：“" + sentence + "”");
+	}
+	
+	public void fireImpact() {
+		
+	}
 }

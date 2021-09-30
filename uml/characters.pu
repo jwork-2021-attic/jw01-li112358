@@ -1,39 +1,63 @@
 @startuml
-
-class Being
-
-class Creature {
-
-    int health
-    int attack
-    int defense
-    String[] memory
-
-    speakTo()
-    listen()
-    attack()
-    move()
+Class Creature{
+	- String name;
+	+ void speakTo(Creature creature1, Creature creature2, String sentence)
+	+ void speakTo(Creature creature, String sentence)
+	+ void listenFrom(String HName, String sentence)
+	+ void fireImpact()
 }
 
-class SpiderWeb{
-    status
-    open()
-    close()
+Class ScorpionEssence{
+	+ void yell()
+	+ void praise()
 }
 
-class Monster{
-    int magic
-    rolleyes()
-    bePissed()
+Class SnakeEssence{
+	+ void yell()
 }
 
-Creature --|> Being
+Class CommonMonster{
+	- String place
+	+ String place()
+	+ void runAway()
+	+ void fireImpact()
+}
 
+Class HuoWa{
+	+ void rollEyes()
+	+ void disCover(CommonMonster CM)
+	+ void fireTo(Creature creature)
+	+ void fireTo(InertMatter IM)
+}
 
-Human --|> Creature
+Class ShuiWa{
+}
 
-Monster --|> Creature
+Class InertMatter{
+	- String name;
+	+ String name();
+	+ void fireImpact();
+}
 
-SpiderWeb --|> Being
+Class CaveTop{
+	- boolean bright
+	+ void light()
+	+ void fireImpact()
+}
+
+Class Cup{
+	- boolean hot
+	+ void  CupHot()
+	+ void fireImpact()
+}
+
+Creature <|-- ScorpionEssence
+Creature <|-- CommonMonster
+Creature <|-- ScorpionEssence
+Creature <|-- SnakeEssence
+Creature <|-- HuoWa
+Creature <|-- ShuiWa
+InertMatter <|-- CaveTop
+InertMatter <|-- Cup
 
 @enduml
